@@ -13,7 +13,7 @@
     "@sanity/demo": "^1.0.1",
     "@sanity/vision": "^3.1.4",
     "next": "^13.3.1",
-    "next-sanity": "^3.1.9",
+    "next-sanity": "^4.1.7",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "sanity": "^3.1.4"
