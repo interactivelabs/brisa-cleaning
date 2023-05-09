@@ -17,12 +17,7 @@ export default defineType({
       title: 'Content',
       name: 'content',
       type: 'array',
-      of: [
-        { type: 'grid' },
-        { type: 'hero' },
-        { type: 'marquee' },
-        { type: 'dividerPhoto' },
-      ],
+      of: [{ type: 'hero' }, { type: 'marquee' }, { type: 'photo' }],
       validation: (Rule) =>
         Rule.length(1).error('You can only have one piece of content'),
     },

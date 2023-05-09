@@ -33,7 +33,6 @@ export default defineType({
       name: 'modules',
       type: 'array',
       of: [
-        { type: 'grid' },
         { type: 'hero' },
         { type: 'marquee' },
         { type: 'photo' },

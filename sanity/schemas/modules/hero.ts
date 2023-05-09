@@ -8,7 +8,7 @@ export default defineType({
     {
       title: 'Overlay Content',
       name: 'content',
-      type: 'complexPortableText',
+      type: 'text',
     },
     {
       title: 'Background Type',
