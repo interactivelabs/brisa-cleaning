@@ -35,7 +35,6 @@ export default defineType({
       name: 'customRatio',
       type: 'number',
       options: {
-        isHighlighted: true,
         list: crops,
       },
     },

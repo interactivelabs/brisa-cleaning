@@ -41,6 +41,7 @@ export default defineType({
           type: 'reference',
           to: [{ type: 'section' }],
         },
+        { type: 'testimonials' },
       ],
       group: 'content',
     },

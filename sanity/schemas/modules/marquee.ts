@@ -4,7 +4,6 @@ export default defineType({
   title: 'Marquee',
   name: 'marquee',
   type: 'object',
-  icon: Infinity,
   fieldsets: [
     {
       title: '',

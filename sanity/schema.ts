@@ -5,6 +5,7 @@ import section from './schemas/documents/section';
 import hero from './schemas/modules/hero';
 import marquee from './schemas/modules/marquee';
 import photo from './schemas/modules/photo';
+import testimonials from './schemas/modules/testimonials';
 import navDropdown from './schemas/objects/nav-dropdown';
 import navLink from './schemas/objects/nav-link';
 import navPage from './schemas/objects/nav-page';
@@ -22,5 +23,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navLink,
     navPage,
     testimonial,
+    testimonials,
   ],
 };
