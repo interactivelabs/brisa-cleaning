@@ -11,12 +11,12 @@
   },
   "dependencies": {
     "@sanity/demo": "^1.0.2",
-    "@sanity/vision": "^3.10.3",
+    "@sanity/vision": "^3.11.0",
     "next": "^13.4.2",
     "next-sanity": "^4.3.2",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
-    "sanity": "^3.10.3"
+    "sanity": "^3.11.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
