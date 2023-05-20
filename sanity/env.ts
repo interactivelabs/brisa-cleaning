@@ -14,6 +14,8 @@ export const previewSecretDocumentId: `${string}.${string}` = 'preview.secret';
 
 export const useCdn = false;
 
+export const apiVersion = '2021-08-31';
+
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage);

@@ -34,14 +34,11 @@ export default defineType({
       type: 'array',
       of: [
         { type: 'hero' },
-        { type: 'marquee' },
         { type: 'photo' },
-        {
-          title: 'Reusable Section',
-          type: 'reference',
-          to: [{ type: 'section' }],
-        },
+        { type: 'content_section' },
         { type: 'testimonials' },
+        { type: 'pharagraph' },
+        { type: 'section' },
       ],
       group: 'content',
     },

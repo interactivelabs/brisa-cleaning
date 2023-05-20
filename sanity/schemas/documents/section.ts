@@ -1,30 +1,21 @@
 import { defineType } from 'sanity';
 
 export default defineType({
-  title: 'Reusable Section',
+  title: 'Section',
   name: 'section',
   type: 'document',
   fields: [
     {
-      title: 'Name',
-      name: 'name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
-      description:
-        'Provide a name to reference this section. For internal use only.',
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Content',
-      name: 'content',
+      title: 'Contents',
+      name: 'modules',
       type: 'array',
-      of: [
-        { type: 'hero' },
-        { type: 'marquee' },
-        { type: 'photo' },
-        { type: 'testimonials' },
-      ],
-      validation: (Rule) =>
-        Rule.length(1).error('You can only have one piece of content'),
+      of: [{ type: 'hero' }, { type: 'photo' }, { type: 'content_section' }],
     },
   ],
 });
