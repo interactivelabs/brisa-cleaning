@@ -1,0 +1,6 @@
+fragment Slug on Slug {
+  _key
+  _type
+  current
+  source
+}

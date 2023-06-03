@@ -1,0 +1,12 @@
+fragment Page on Page {
+  _id
+  _key
+  _type
+  title
+  slug {
+    ...Slug
+  }
+  modules {
+    ...PageContent
+  }
+}

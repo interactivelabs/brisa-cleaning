@@ -5,7 +5,9 @@ import section from './schemas/documents/section';
 import content_section from './schemas/modules/content_section';
 import hero from './schemas/modules/hero';
 import photo from './schemas/modules/photo';
+import photos from './schemas/modules/photos';
 import testimonials from './schemas/modules/testimonials';
+import video from './schemas/modules/video';
 import navDropdown from './schemas/objects/nav-dropdown';
 import navLink from './schemas/objects/nav-link';
 import navPage from './schemas/objects/nav-page';
@@ -15,16 +17,18 @@ import testimonial from './schemas/objects/testimonial';
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     content_section,
-    menu,
-    page,
     hero,
-    photo,
+    menu,
     navDropdown,
     navLink,
     navPage,
-    section,
+    page,
     pharagraph,
+    photo,
+    photos,
+    section,
     testimonial,
     testimonials,
+    video,
   ],
 };

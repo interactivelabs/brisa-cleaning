@@ -1,0 +1,2 @@
+schema: 'https://u25p0yxd.api.sanity.io/v1/graphql/production/default'
+documents: '**/*.{graphql,ts,tsx}'

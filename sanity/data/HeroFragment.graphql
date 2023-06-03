@@ -1,0 +1,19 @@
+fragment Hero on Hero {
+  _key
+  _type
+  content
+  bgType
+  video {
+    ...Video
+  }
+  Photos {
+    _key
+    _type
+    mobilePhoto {
+      ...Photo
+    }
+    desktopPhoto {
+      ...Photo
+    }
+  }
+}

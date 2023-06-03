@@ -1,0 +1,18 @@
+fragment PageContent on ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials {
+  __typename
+  ... on Testimonials {
+    ...Testimonials
+  }
+  ... on Hero {
+    ...Hero
+  }
+  ... on Pharagraph {
+    ...Pharagraph
+  }
+  ... on Photo {
+    ...Photo
+  }
+  ... on Section {
+    ...Section
+  }
+}

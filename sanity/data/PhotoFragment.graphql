@@ -1,0 +1,7 @@
+fragment Photo on Photo {
+  _key
+  _type
+  src
+  alt
+  customRatio
+}

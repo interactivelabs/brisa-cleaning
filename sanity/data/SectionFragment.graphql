@@ -1,0 +1,22 @@
+fragment Section on Section {
+  _id
+  _type
+  _key
+  title
+  modules {
+    ... on ContentSection {
+      _key
+      _type
+      name
+      modules {
+        ...ContentSection
+      }
+    }
+    ... on Hero {
+      ...Hero
+    }
+    ... on Photo {
+      ...Photo
+    }
+  }
+}

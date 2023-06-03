@@ -1,0 +1,22 @@
+overwrite: true
+schema: 'https://u25p0yxd.api.sanity.io/v1/graphql/production/default'
+documents: '**/*.{tsx,graphql}'
+generates:
+  ./graphql/graphql.ts:
+    plugins:
+      - typescript
+  ./sanity/data/gql-sdk.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    pluginsConfig:
+      typescript-graphql-request:
+        rawRequest: true
+        useTypeImports: true
+  ./@types/graphql.d.ts:
+    plugins:
+      - typescript-graphql-files-modules
+  ./graphql/graphql.schema.json:
+    plugins:
+      - introspection
