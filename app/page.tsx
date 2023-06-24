@@ -9,9 +9,10 @@ export default async function Home() {
   const pages = await api.GetPage({
     id: '43a4b0b5-7df9-420e-95b8-0c2aff0f2f94',
   });
+  console.log(pages);
   const homepage = pages.Page;
   if (!homepage) return <div>Error Page content can&apos;t be loaded</div>;
-
+  console.log(homepage.modules);
   const content = homepage.modules?.map(
     (module: PageContentFragment | null) => {
       if (!module || !('_type' in module)) return null;
@@ -26,7 +27,7 @@ export default async function Home() {
   );
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="p-8">
       <h1>{homepage.title}</h1>
       {content}
     </main>

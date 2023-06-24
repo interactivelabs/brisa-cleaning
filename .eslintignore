@@ -1,3 +1,6 @@
 **/node_modules/*
 **/out/*
 **/.next/*
+**/sanity/data/gql-sdk.ts
+**/sanity/lib/previewSecret.ts
+**/graphql/graphql.ts
