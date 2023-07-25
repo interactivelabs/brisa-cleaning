@@ -1,16 +1,4 @@
 {
   "semi": true,
-  "singleQuote": true,
-  "importOrder": [
-    "<THIRD_PARTY_MODULES>",
-    "^@pages/(.*)$",
-    "^@lib/(.*)$",
-    "^@layouts/(.*)$",
-    "^@providers/(.*)$",
-    "^@containers/(.*)$",
-    "^@components/(.*)$",
-    "^@hooks/(.*)$",
-    "^@graphql/(.*)$",
-    "^[./]"
-  ]
+  "singleQuote": true
 }

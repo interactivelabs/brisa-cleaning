@@ -1,19 +1,32 @@
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string | number; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
-  Date: { input: any; output: any; }
-  DateTime: { input: any; output: any; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  Date: { input: any; output: any };
+  DateTime: { input: any; output: any };
 };
 
 export type Block = {
@@ -47,7 +60,13 @@ export type ContentSectionFilter = {
   name?: InputMaybe<StringFilter>;
 };
 
-export type ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials = ContentSection | Hero | Pharagraph | Photo | Section | Testimonials;
+export type ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials =
+  | ContentSection
+  | Hero
+  | Pharagraph
+  | Photo
+  | Section
+  | Testimonials;
 
 export type ContentSectionOrHeroOrPhoto = ContentSection | Hero | Photo;
 
@@ -224,7 +243,11 @@ export type HeroFilter = {
   video?: InputMaybe<VideoFilter>;
 };
 
-export type HeroOrPharagraphOrPhotoOrTestimonials = Hero | Pharagraph | Photo | Testimonials;
+export type HeroOrPharagraphOrPhotoOrTestimonials =
+  | Hero
+  | Pharagraph
+  | Photo
+  | Testimonials;
 
 export type HeroSorting = {
   Photos?: InputMaybe<PhotosSorting>;
@@ -411,7 +434,9 @@ export type Page = Document & {
   _type?: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  modules?: Maybe<Array<Maybe<ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials>>>;
+  modules?: Maybe<
+    Array<Maybe<ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials>>
+  >;
   slug?: Maybe<Slug>;
   title?: Maybe<Scalars['String']['output']>;
 };
@@ -527,36 +552,29 @@ export type RootQuery = {
   allSection: Array<Section>;
 };
 
-
 export type RootQueryDocumentArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type RootQueryMenuArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type RootQueryPageArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type RootQuerySanityFileAssetArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type RootQuerySanityImageAssetArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type RootQuerySectionArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type RootQueryAllDocumentArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -565,14 +583,12 @@ export type RootQueryAllDocumentArgs = {
   where?: InputMaybe<DocumentFilter>;
 };
 
-
 export type RootQueryAllMenuArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<MenuSorting>>;
   where?: InputMaybe<MenuFilter>;
 };
-
 
 export type RootQueryAllPageArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -581,7 +597,6 @@ export type RootQueryAllPageArgs = {
   where?: InputMaybe<PageFilter>;
 };
 
-
 export type RootQueryAllSanityFileAssetArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -589,14 +604,12 @@ export type RootQueryAllSanityFileAssetArgs = {
   where?: InputMaybe<SanityFileAssetFilter>;
 };
 
-
 export type RootQueryAllSanityImageAssetArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<SanityImageAssetSorting>>;
   where?: InputMaybe<SanityImageAssetFilter>;
 };
-
 
 export type RootQueryAllSectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -1042,7 +1055,7 @@ export enum SortOrder {
   /** Sorts on the value in ascending order. */
   Asc = 'ASC',
   /** Sorts on the value in descending order. */
-  Desc = 'DESC'
+  Desc = 'DESC',
 }
 
 export type Span = {

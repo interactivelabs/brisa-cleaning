@@ -21,7 +21,7 @@ export default function Testimonials({ testimonials }: ITestimonials) {
                 <p>{testimonial.content}</p>
                 <span>{testimonial.author_name}</span>
               </li>
-            )
+            ),
         )}
       </ul>
     </section>

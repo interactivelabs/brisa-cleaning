@@ -1,22 +1,36 @@
 import { GraphQLClient } from 'graphql-request';
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/cjs/types';
 import gql from 'graphql-tag';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string | number; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
-  Date: { input: any; output: any; }
-  DateTime: { input: any; output: any; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  Date: { input: any; output: any };
+  DateTime: { input: any; output: any };
 };
 
 export type Block = {
@@ -50,7 +64,13 @@ export type ContentSectionFilter = {
   name?: InputMaybe<StringFilter>;
 };
 
-export type ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials = ContentSection | Hero | Pharagraph | Photo | Section | Testimonials;
+export type ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials =
+  | ContentSection
+  | Hero
+  | Pharagraph
+  | Photo
+  | Section
+  | Testimonials;
 
 export type ContentSectionOrHeroOrPhoto = ContentSection | Hero | Photo;
 
@@ -227,7 +247,11 @@ export type HeroFilter = {
   video?: InputMaybe<VideoFilter>;
 };
 
-export type HeroOrPharagraphOrPhotoOrTestimonials = Hero | Pharagraph | Photo | Testimonials;
+export type HeroOrPharagraphOrPhotoOrTestimonials =
+  | Hero
+  | Pharagraph
+  | Photo
+  | Testimonials;
 
 export type HeroSorting = {
   Photos?: InputMaybe<PhotosSorting>;
@@ -414,7 +438,9 @@ export type Page = Document & {
   _type?: Maybe<Scalars['String']['output']>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  modules?: Maybe<Array<Maybe<ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials>>>;
+  modules?: Maybe<
+    Array<Maybe<ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials>>
+  >;
   slug?: Maybe<Slug>;
   title?: Maybe<Scalars['String']['output']>;
 };
@@ -530,36 +556,29 @@ export type RootQuery = {
   allSection: Array<Section>;
 };
 
-
 export type RootQueryDocumentArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type RootQueryMenuArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type RootQueryPageArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type RootQuerySanityFileAssetArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type RootQuerySanityImageAssetArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type RootQuerySectionArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type RootQueryAllDocumentArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -568,14 +587,12 @@ export type RootQueryAllDocumentArgs = {
   where?: InputMaybe<DocumentFilter>;
 };
 
-
 export type RootQueryAllMenuArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<MenuSorting>>;
   where?: InputMaybe<MenuFilter>;
 };
-
 
 export type RootQueryAllPageArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -584,7 +601,6 @@ export type RootQueryAllPageArgs = {
   where?: InputMaybe<PageFilter>;
 };
 
-
 export type RootQueryAllSanityFileAssetArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -592,14 +608,12 @@ export type RootQueryAllSanityFileAssetArgs = {
   where?: InputMaybe<SanityFileAssetFilter>;
 };
 
-
 export type RootQueryAllSanityImageAssetArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<SanityImageAssetSorting>>;
   where?: InputMaybe<SanityImageAssetFilter>;
 };
-
 
 export type RootQueryAllSectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -1045,7 +1059,7 @@ export enum SortOrder {
   /** Sorts on the value in ascending order. */
   Asc = 'ASC',
   /** Sorts on the value in descending order. */
-  Desc = 'DESC'
+  Desc = 'DESC',
 }
 
 export type Span = {
@@ -1140,232 +1154,1149 @@ export type VideoSorting = {
   title?: InputMaybe<SortOrder>;
 };
 
-type ContentSection_Hero_Fragment = { __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null };
+type ContentSection_Hero_Fragment = {
+  __typename?: 'Hero';
+  _key?: string | null;
+  _type?: string | null;
+  content?: string | null;
+  bgType?: string | null;
+  video?: {
+    __typename?: 'Video';
+    _key?: string | null;
+    _type?: string | null;
+    id?: string | null;
+    title?: string | null;
+    src?: string | null;
+  } | null;
+  Photos?: {
+    __typename?: 'Photos';
+    _key?: string | null;
+    _type?: string | null;
+    mobilePhoto?: {
+      __typename?: 'Photo';
+      _key?: string | null;
+      _type?: string | null;
+      src?: string | null;
+      alt?: string | null;
+      customRatio?: number | null;
+    } | null;
+    desktopPhoto?: {
+      __typename?: 'Photo';
+      _key?: string | null;
+      _type?: string | null;
+      src?: string | null;
+      alt?: string | null;
+      customRatio?: number | null;
+    } | null;
+  } | null;
+};
 
-type ContentSection_Pharagraph_Fragment = { __typename?: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null };
+type ContentSection_Pharagraph_Fragment = {
+  __typename?: 'Pharagraph';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  content?: string | null;
+};
 
-type ContentSection_Photo_Fragment = { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null };
+type ContentSection_Photo_Fragment = {
+  __typename?: 'Photo';
+  _key?: string | null;
+  _type?: string | null;
+  src?: string | null;
+  alt?: string | null;
+  customRatio?: number | null;
+};
 
-type ContentSection_Testimonials_Fragment = { __typename?: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null };
+type ContentSection_Testimonials_Fragment = {
+  __typename?: 'Testimonials';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  modules?: Array<{
+    __typename?: 'Testimonial';
+    _key?: string | null;
+    _type?: string | null;
+    title?: string | null;
+    content?: string | null;
+    author_name?: string | null;
+  } | null> | null;
+};
 
-export type ContentSectionFragment = ContentSection_Hero_Fragment | ContentSection_Pharagraph_Fragment | ContentSection_Photo_Fragment | ContentSection_Testimonials_Fragment;
+export type ContentSectionFragment =
+  | ContentSection_Hero_Fragment
+  | ContentSection_Pharagraph_Fragment
+  | ContentSection_Photo_Fragment
+  | ContentSection_Testimonials_Fragment;
 
 export type GetPageQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
+export type GetPageQuery = {
+  __typename?: 'RootQuery';
+  Page?: {
+    __typename?: 'Page';
+    _id?: string | null;
+    _key?: string | null;
+    _type?: string | null;
+    title?: string | null;
+    slug?: {
+      __typename?: 'Slug';
+      _key?: string | null;
+      _type?: string | null;
+      current?: string | null;
+      source?: string | null;
+    } | null;
+    modules?: Array<
+      | { __typename: 'ContentSection' }
+      | {
+          __typename: 'Hero';
+          _key?: string | null;
+          _type?: string | null;
+          content?: string | null;
+          bgType?: string | null;
+          video?: {
+            __typename?: 'Video';
+            _key?: string | null;
+            _type?: string | null;
+            id?: string | null;
+            title?: string | null;
+            src?: string | null;
+          } | null;
+          Photos?: {
+            __typename?: 'Photos';
+            _key?: string | null;
+            _type?: string | null;
+            mobilePhoto?: {
+              __typename?: 'Photo';
+              _key?: string | null;
+              _type?: string | null;
+              src?: string | null;
+              alt?: string | null;
+              customRatio?: number | null;
+            } | null;
+            desktopPhoto?: {
+              __typename?: 'Photo';
+              _key?: string | null;
+              _type?: string | null;
+              src?: string | null;
+              alt?: string | null;
+              customRatio?: number | null;
+            } | null;
+          } | null;
+        }
+      | {
+          __typename: 'Pharagraph';
+          _key?: string | null;
+          _type?: string | null;
+          title?: string | null;
+          content?: string | null;
+        }
+      | {
+          __typename: 'Photo';
+          _key?: string | null;
+          _type?: string | null;
+          src?: string | null;
+          alt?: string | null;
+          customRatio?: number | null;
+        }
+      | {
+          __typename: 'Section';
+          _id?: string | null;
+          _type?: string | null;
+          _key?: string | null;
+          title?: string | null;
+          modules?: Array<
+            | {
+                __typename?: 'ContentSection';
+                _key?: string | null;
+                _type?: string | null;
+                name?: string | null;
+                modules?: Array<
+                  | {
+                      __typename?: 'Hero';
+                      _key?: string | null;
+                      _type?: string | null;
+                      content?: string | null;
+                      bgType?: string | null;
+                      video?: {
+                        __typename?: 'Video';
+                        _key?: string | null;
+                        _type?: string | null;
+                        id?: string | null;
+                        title?: string | null;
+                        src?: string | null;
+                      } | null;
+                      Photos?: {
+                        __typename?: 'Photos';
+                        _key?: string | null;
+                        _type?: string | null;
+                        mobilePhoto?: {
+                          __typename?: 'Photo';
+                          _key?: string | null;
+                          _type?: string | null;
+                          src?: string | null;
+                          alt?: string | null;
+                          customRatio?: number | null;
+                        } | null;
+                        desktopPhoto?: {
+                          __typename?: 'Photo';
+                          _key?: string | null;
+                          _type?: string | null;
+                          src?: string | null;
+                          alt?: string | null;
+                          customRatio?: number | null;
+                        } | null;
+                      } | null;
+                    }
+                  | {
+                      __typename?: 'Pharagraph';
+                      _key?: string | null;
+                      _type?: string | null;
+                      title?: string | null;
+                      content?: string | null;
+                    }
+                  | {
+                      __typename?: 'Photo';
+                      _key?: string | null;
+                      _type?: string | null;
+                      src?: string | null;
+                      alt?: string | null;
+                      customRatio?: number | null;
+                    }
+                  | {
+                      __typename?: 'Testimonials';
+                      _key?: string | null;
+                      _type?: string | null;
+                      title?: string | null;
+                      modules?: Array<{
+                        __typename?: 'Testimonial';
+                        _key?: string | null;
+                        _type?: string | null;
+                        title?: string | null;
+                        content?: string | null;
+                        author_name?: string | null;
+                      } | null> | null;
+                    }
+                  | null
+                > | null;
+              }
+            | {
+                __typename?: 'Hero';
+                _key?: string | null;
+                _type?: string | null;
+                content?: string | null;
+                bgType?: string | null;
+                video?: {
+                  __typename?: 'Video';
+                  _key?: string | null;
+                  _type?: string | null;
+                  id?: string | null;
+                  title?: string | null;
+                  src?: string | null;
+                } | null;
+                Photos?: {
+                  __typename?: 'Photos';
+                  _key?: string | null;
+                  _type?: string | null;
+                  mobilePhoto?: {
+                    __typename?: 'Photo';
+                    _key?: string | null;
+                    _type?: string | null;
+                    src?: string | null;
+                    alt?: string | null;
+                    customRatio?: number | null;
+                  } | null;
+                  desktopPhoto?: {
+                    __typename?: 'Photo';
+                    _key?: string | null;
+                    _type?: string | null;
+                    src?: string | null;
+                    alt?: string | null;
+                    customRatio?: number | null;
+                  } | null;
+                } | null;
+              }
+            | {
+                __typename?: 'Photo';
+                _key?: string | null;
+                _type?: string | null;
+                src?: string | null;
+                alt?: string | null;
+                customRatio?: number | null;
+              }
+            | null
+          > | null;
+        }
+      | {
+          __typename: 'Testimonials';
+          _key?: string | null;
+          _type?: string | null;
+          title?: string | null;
+          modules?: Array<{
+            __typename?: 'Testimonial';
+            _key?: string | null;
+            _type?: string | null;
+            title?: string | null;
+            content?: string | null;
+            author_name?: string | null;
+          } | null> | null;
+        }
+      | null
+    > | null;
+  } | null;
+};
 
-export type GetPageQuery = { __typename?: 'RootQuery', Page?: { __typename?: 'Page', _id?: string | null, _key?: string | null, _type?: string | null, title?: string | null, slug?: { __typename?: 'Slug', _key?: string | null, _type?: string | null, current?: string | null, source?: string | null } | null, modules?: Array<{ __typename: 'ContentSection' } | { __typename: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null } | { __typename: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | { __typename: 'Section', _id?: string | null, _type?: string | null, _key?: string | null, title?: string | null, modules?: Array<{ __typename?: 'ContentSection', _key?: string | null, _type?: string | null, name?: string | null, modules?: Array<{ __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | { __typename?: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null } | null> | null } | { __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null> | null } | { __typename: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null } | null> | null } | null };
-
-export type HeroFragment = { __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null };
+export type HeroFragment = {
+  __typename?: 'Hero';
+  _key?: string | null;
+  _type?: string | null;
+  content?: string | null;
+  bgType?: string | null;
+  video?: {
+    __typename?: 'Video';
+    _key?: string | null;
+    _type?: string | null;
+    id?: string | null;
+    title?: string | null;
+    src?: string | null;
+  } | null;
+  Photos?: {
+    __typename?: 'Photos';
+    _key?: string | null;
+    _type?: string | null;
+    mobilePhoto?: {
+      __typename?: 'Photo';
+      _key?: string | null;
+      _type?: string | null;
+      src?: string | null;
+      alt?: string | null;
+      customRatio?: number | null;
+    } | null;
+    desktopPhoto?: {
+      __typename?: 'Photo';
+      _key?: string | null;
+      _type?: string | null;
+      src?: string | null;
+      alt?: string | null;
+      customRatio?: number | null;
+    } | null;
+  } | null;
+};
 
 type PageContent_ContentSection_Fragment = { __typename: 'ContentSection' };
 
-type PageContent_Hero_Fragment = { __typename: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null };
+type PageContent_Hero_Fragment = {
+  __typename: 'Hero';
+  _key?: string | null;
+  _type?: string | null;
+  content?: string | null;
+  bgType?: string | null;
+  video?: {
+    __typename?: 'Video';
+    _key?: string | null;
+    _type?: string | null;
+    id?: string | null;
+    title?: string | null;
+    src?: string | null;
+  } | null;
+  Photos?: {
+    __typename?: 'Photos';
+    _key?: string | null;
+    _type?: string | null;
+    mobilePhoto?: {
+      __typename?: 'Photo';
+      _key?: string | null;
+      _type?: string | null;
+      src?: string | null;
+      alt?: string | null;
+      customRatio?: number | null;
+    } | null;
+    desktopPhoto?: {
+      __typename?: 'Photo';
+      _key?: string | null;
+      _type?: string | null;
+      src?: string | null;
+      alt?: string | null;
+      customRatio?: number | null;
+    } | null;
+  } | null;
+};
 
-type PageContent_Pharagraph_Fragment = { __typename: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null };
+type PageContent_Pharagraph_Fragment = {
+  __typename: 'Pharagraph';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  content?: string | null;
+};
 
-type PageContent_Photo_Fragment = { __typename: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null };
+type PageContent_Photo_Fragment = {
+  __typename: 'Photo';
+  _key?: string | null;
+  _type?: string | null;
+  src?: string | null;
+  alt?: string | null;
+  customRatio?: number | null;
+};
 
-type PageContent_Section_Fragment = { __typename: 'Section', _id?: string | null, _type?: string | null, _key?: string | null, title?: string | null, modules?: Array<{ __typename?: 'ContentSection', _key?: string | null, _type?: string | null, name?: string | null, modules?: Array<{ __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | { __typename?: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null } | null> | null } | { __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null> | null };
+type PageContent_Section_Fragment = {
+  __typename: 'Section';
+  _id?: string | null;
+  _type?: string | null;
+  _key?: string | null;
+  title?: string | null;
+  modules?: Array<
+    | {
+        __typename?: 'ContentSection';
+        _key?: string | null;
+        _type?: string | null;
+        name?: string | null;
+        modules?: Array<
+          | {
+              __typename?: 'Hero';
+              _key?: string | null;
+              _type?: string | null;
+              content?: string | null;
+              bgType?: string | null;
+              video?: {
+                __typename?: 'Video';
+                _key?: string | null;
+                _type?: string | null;
+                id?: string | null;
+                title?: string | null;
+                src?: string | null;
+              } | null;
+              Photos?: {
+                __typename?: 'Photos';
+                _key?: string | null;
+                _type?: string | null;
+                mobilePhoto?: {
+                  __typename?: 'Photo';
+                  _key?: string | null;
+                  _type?: string | null;
+                  src?: string | null;
+                  alt?: string | null;
+                  customRatio?: number | null;
+                } | null;
+                desktopPhoto?: {
+                  __typename?: 'Photo';
+                  _key?: string | null;
+                  _type?: string | null;
+                  src?: string | null;
+                  alt?: string | null;
+                  customRatio?: number | null;
+                } | null;
+              } | null;
+            }
+          | {
+              __typename?: 'Pharagraph';
+              _key?: string | null;
+              _type?: string | null;
+              title?: string | null;
+              content?: string | null;
+            }
+          | {
+              __typename?: 'Photo';
+              _key?: string | null;
+              _type?: string | null;
+              src?: string | null;
+              alt?: string | null;
+              customRatio?: number | null;
+            }
+          | {
+              __typename?: 'Testimonials';
+              _key?: string | null;
+              _type?: string | null;
+              title?: string | null;
+              modules?: Array<{
+                __typename?: 'Testimonial';
+                _key?: string | null;
+                _type?: string | null;
+                title?: string | null;
+                content?: string | null;
+                author_name?: string | null;
+              } | null> | null;
+            }
+          | null
+        > | null;
+      }
+    | {
+        __typename?: 'Hero';
+        _key?: string | null;
+        _type?: string | null;
+        content?: string | null;
+        bgType?: string | null;
+        video?: {
+          __typename?: 'Video';
+          _key?: string | null;
+          _type?: string | null;
+          id?: string | null;
+          title?: string | null;
+          src?: string | null;
+        } | null;
+        Photos?: {
+          __typename?: 'Photos';
+          _key?: string | null;
+          _type?: string | null;
+          mobilePhoto?: {
+            __typename?: 'Photo';
+            _key?: string | null;
+            _type?: string | null;
+            src?: string | null;
+            alt?: string | null;
+            customRatio?: number | null;
+          } | null;
+          desktopPhoto?: {
+            __typename?: 'Photo';
+            _key?: string | null;
+            _type?: string | null;
+            src?: string | null;
+            alt?: string | null;
+            customRatio?: number | null;
+          } | null;
+        } | null;
+      }
+    | {
+        __typename?: 'Photo';
+        _key?: string | null;
+        _type?: string | null;
+        src?: string | null;
+        alt?: string | null;
+        customRatio?: number | null;
+      }
+    | null
+  > | null;
+};
 
-type PageContent_Testimonials_Fragment = { __typename: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null };
+type PageContent_Testimonials_Fragment = {
+  __typename: 'Testimonials';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  modules?: Array<{
+    __typename?: 'Testimonial';
+    _key?: string | null;
+    _type?: string | null;
+    title?: string | null;
+    content?: string | null;
+    author_name?: string | null;
+  } | null> | null;
+};
 
-export type PageContentFragment = PageContent_ContentSection_Fragment | PageContent_Hero_Fragment | PageContent_Pharagraph_Fragment | PageContent_Photo_Fragment | PageContent_Section_Fragment | PageContent_Testimonials_Fragment;
+export type PageContentFragment =
+  | PageContent_ContentSection_Fragment
+  | PageContent_Hero_Fragment
+  | PageContent_Pharagraph_Fragment
+  | PageContent_Photo_Fragment
+  | PageContent_Section_Fragment
+  | PageContent_Testimonials_Fragment;
 
-export type PageFragment = { __typename?: 'Page', _id?: string | null, _key?: string | null, _type?: string | null, title?: string | null, slug?: { __typename?: 'Slug', _key?: string | null, _type?: string | null, current?: string | null, source?: string | null } | null, modules?: Array<{ __typename: 'ContentSection' } | { __typename: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null } | { __typename: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | { __typename: 'Section', _id?: string | null, _type?: string | null, _key?: string | null, title?: string | null, modules?: Array<{ __typename?: 'ContentSection', _key?: string | null, _type?: string | null, name?: string | null, modules?: Array<{ __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | { __typename?: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null } | null> | null } | { __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null> | null } | { __typename: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null } | null> | null };
+export type PageFragment = {
+  __typename?: 'Page';
+  _id?: string | null;
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  slug?: {
+    __typename?: 'Slug';
+    _key?: string | null;
+    _type?: string | null;
+    current?: string | null;
+    source?: string | null;
+  } | null;
+  modules?: Array<
+    | { __typename: 'ContentSection' }
+    | {
+        __typename: 'Hero';
+        _key?: string | null;
+        _type?: string | null;
+        content?: string | null;
+        bgType?: string | null;
+        video?: {
+          __typename?: 'Video';
+          _key?: string | null;
+          _type?: string | null;
+          id?: string | null;
+          title?: string | null;
+          src?: string | null;
+        } | null;
+        Photos?: {
+          __typename?: 'Photos';
+          _key?: string | null;
+          _type?: string | null;
+          mobilePhoto?: {
+            __typename?: 'Photo';
+            _key?: string | null;
+            _type?: string | null;
+            src?: string | null;
+            alt?: string | null;
+            customRatio?: number | null;
+          } | null;
+          desktopPhoto?: {
+            __typename?: 'Photo';
+            _key?: string | null;
+            _type?: string | null;
+            src?: string | null;
+            alt?: string | null;
+            customRatio?: number | null;
+          } | null;
+        } | null;
+      }
+    | {
+        __typename: 'Pharagraph';
+        _key?: string | null;
+        _type?: string | null;
+        title?: string | null;
+        content?: string | null;
+      }
+    | {
+        __typename: 'Photo';
+        _key?: string | null;
+        _type?: string | null;
+        src?: string | null;
+        alt?: string | null;
+        customRatio?: number | null;
+      }
+    | {
+        __typename: 'Section';
+        _id?: string | null;
+        _type?: string | null;
+        _key?: string | null;
+        title?: string | null;
+        modules?: Array<
+          | {
+              __typename?: 'ContentSection';
+              _key?: string | null;
+              _type?: string | null;
+              name?: string | null;
+              modules?: Array<
+                | {
+                    __typename?: 'Hero';
+                    _key?: string | null;
+                    _type?: string | null;
+                    content?: string | null;
+                    bgType?: string | null;
+                    video?: {
+                      __typename?: 'Video';
+                      _key?: string | null;
+                      _type?: string | null;
+                      id?: string | null;
+                      title?: string | null;
+                      src?: string | null;
+                    } | null;
+                    Photos?: {
+                      __typename?: 'Photos';
+                      _key?: string | null;
+                      _type?: string | null;
+                      mobilePhoto?: {
+                        __typename?: 'Photo';
+                        _key?: string | null;
+                        _type?: string | null;
+                        src?: string | null;
+                        alt?: string | null;
+                        customRatio?: number | null;
+                      } | null;
+                      desktopPhoto?: {
+                        __typename?: 'Photo';
+                        _key?: string | null;
+                        _type?: string | null;
+                        src?: string | null;
+                        alt?: string | null;
+                        customRatio?: number | null;
+                      } | null;
+                    } | null;
+                  }
+                | {
+                    __typename?: 'Pharagraph';
+                    _key?: string | null;
+                    _type?: string | null;
+                    title?: string | null;
+                    content?: string | null;
+                  }
+                | {
+                    __typename?: 'Photo';
+                    _key?: string | null;
+                    _type?: string | null;
+                    src?: string | null;
+                    alt?: string | null;
+                    customRatio?: number | null;
+                  }
+                | {
+                    __typename?: 'Testimonials';
+                    _key?: string | null;
+                    _type?: string | null;
+                    title?: string | null;
+                    modules?: Array<{
+                      __typename?: 'Testimonial';
+                      _key?: string | null;
+                      _type?: string | null;
+                      title?: string | null;
+                      content?: string | null;
+                      author_name?: string | null;
+                    } | null> | null;
+                  }
+                | null
+              > | null;
+            }
+          | {
+              __typename?: 'Hero';
+              _key?: string | null;
+              _type?: string | null;
+              content?: string | null;
+              bgType?: string | null;
+              video?: {
+                __typename?: 'Video';
+                _key?: string | null;
+                _type?: string | null;
+                id?: string | null;
+                title?: string | null;
+                src?: string | null;
+              } | null;
+              Photos?: {
+                __typename?: 'Photos';
+                _key?: string | null;
+                _type?: string | null;
+                mobilePhoto?: {
+                  __typename?: 'Photo';
+                  _key?: string | null;
+                  _type?: string | null;
+                  src?: string | null;
+                  alt?: string | null;
+                  customRatio?: number | null;
+                } | null;
+                desktopPhoto?: {
+                  __typename?: 'Photo';
+                  _key?: string | null;
+                  _type?: string | null;
+                  src?: string | null;
+                  alt?: string | null;
+                  customRatio?: number | null;
+                } | null;
+              } | null;
+            }
+          | {
+              __typename?: 'Photo';
+              _key?: string | null;
+              _type?: string | null;
+              src?: string | null;
+              alt?: string | null;
+              customRatio?: number | null;
+            }
+          | null
+        > | null;
+      }
+    | {
+        __typename: 'Testimonials';
+        _key?: string | null;
+        _type?: string | null;
+        title?: string | null;
+        modules?: Array<{
+          __typename?: 'Testimonial';
+          _key?: string | null;
+          _type?: string | null;
+          title?: string | null;
+          content?: string | null;
+          author_name?: string | null;
+        } | null> | null;
+      }
+    | null
+  > | null;
+};
 
-export type PharagraphFragment = { __typename?: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null };
+export type PharagraphFragment = {
+  __typename?: 'Pharagraph';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  content?: string | null;
+};
 
-export type PhotoFragment = { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null };
+export type PhotoFragment = {
+  __typename?: 'Photo';
+  _key?: string | null;
+  _type?: string | null;
+  src?: string | null;
+  alt?: string | null;
+  customRatio?: number | null;
+};
 
-export type SectionFragment = { __typename?: 'Section', _id?: string | null, _type?: string | null, _key?: string | null, title?: string | null, modules?: Array<{ __typename?: 'ContentSection', _key?: string | null, _type?: string | null, name?: string | null, modules?: Array<{ __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Pharagraph', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | { __typename?: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null } | null> | null } | { __typename?: 'Hero', _key?: string | null, _type?: string | null, content?: string | null, bgType?: string | null, video?: { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null } | null, Photos?: { __typename?: 'Photos', _key?: string | null, _type?: string | null, mobilePhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null, desktopPhoto?: { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null } | null } | { __typename?: 'Photo', _key?: string | null, _type?: string | null, src?: string | null, alt?: string | null, customRatio?: number | null } | null> | null };
+export type SectionFragment = {
+  __typename?: 'Section';
+  _id?: string | null;
+  _type?: string | null;
+  _key?: string | null;
+  title?: string | null;
+  modules?: Array<
+    | {
+        __typename?: 'ContentSection';
+        _key?: string | null;
+        _type?: string | null;
+        name?: string | null;
+        modules?: Array<
+          | {
+              __typename?: 'Hero';
+              _key?: string | null;
+              _type?: string | null;
+              content?: string | null;
+              bgType?: string | null;
+              video?: {
+                __typename?: 'Video';
+                _key?: string | null;
+                _type?: string | null;
+                id?: string | null;
+                title?: string | null;
+                src?: string | null;
+              } | null;
+              Photos?: {
+                __typename?: 'Photos';
+                _key?: string | null;
+                _type?: string | null;
+                mobilePhoto?: {
+                  __typename?: 'Photo';
+                  _key?: string | null;
+                  _type?: string | null;
+                  src?: string | null;
+                  alt?: string | null;
+                  customRatio?: number | null;
+                } | null;
+                desktopPhoto?: {
+                  __typename?: 'Photo';
+                  _key?: string | null;
+                  _type?: string | null;
+                  src?: string | null;
+                  alt?: string | null;
+                  customRatio?: number | null;
+                } | null;
+              } | null;
+            }
+          | {
+              __typename?: 'Pharagraph';
+              _key?: string | null;
+              _type?: string | null;
+              title?: string | null;
+              content?: string | null;
+            }
+          | {
+              __typename?: 'Photo';
+              _key?: string | null;
+              _type?: string | null;
+              src?: string | null;
+              alt?: string | null;
+              customRatio?: number | null;
+            }
+          | {
+              __typename?: 'Testimonials';
+              _key?: string | null;
+              _type?: string | null;
+              title?: string | null;
+              modules?: Array<{
+                __typename?: 'Testimonial';
+                _key?: string | null;
+                _type?: string | null;
+                title?: string | null;
+                content?: string | null;
+                author_name?: string | null;
+              } | null> | null;
+            }
+          | null
+        > | null;
+      }
+    | {
+        __typename?: 'Hero';
+        _key?: string | null;
+        _type?: string | null;
+        content?: string | null;
+        bgType?: string | null;
+        video?: {
+          __typename?: 'Video';
+          _key?: string | null;
+          _type?: string | null;
+          id?: string | null;
+          title?: string | null;
+          src?: string | null;
+        } | null;
+        Photos?: {
+          __typename?: 'Photos';
+          _key?: string | null;
+          _type?: string | null;
+          mobilePhoto?: {
+            __typename?: 'Photo';
+            _key?: string | null;
+            _type?: string | null;
+            src?: string | null;
+            alt?: string | null;
+            customRatio?: number | null;
+          } | null;
+          desktopPhoto?: {
+            __typename?: 'Photo';
+            _key?: string | null;
+            _type?: string | null;
+            src?: string | null;
+            alt?: string | null;
+            customRatio?: number | null;
+          } | null;
+        } | null;
+      }
+    | {
+        __typename?: 'Photo';
+        _key?: string | null;
+        _type?: string | null;
+        src?: string | null;
+        alt?: string | null;
+        customRatio?: number | null;
+      }
+    | null
+  > | null;
+};
 
-export type SlugFragment = { __typename?: 'Slug', _key?: string | null, _type?: string | null, current?: string | null, source?: string | null };
+export type SlugFragment = {
+  __typename?: 'Slug';
+  _key?: string | null;
+  _type?: string | null;
+  current?: string | null;
+  source?: string | null;
+};
 
-export type TestimonialFragment = { __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null };
+export type TestimonialFragment = {
+  __typename?: 'Testimonial';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  content?: string | null;
+  author_name?: string | null;
+};
 
-export type TestimonialsFragment = { __typename?: 'Testimonials', _key?: string | null, _type?: string | null, title?: string | null, modules?: Array<{ __typename?: 'Testimonial', _key?: string | null, _type?: string | null, title?: string | null, content?: string | null, author_name?: string | null } | null> | null };
+export type TestimonialsFragment = {
+  __typename?: 'Testimonials';
+  _key?: string | null;
+  _type?: string | null;
+  title?: string | null;
+  modules?: Array<{
+    __typename?: 'Testimonial';
+    _key?: string | null;
+    _type?: string | null;
+    title?: string | null;
+    content?: string | null;
+    author_name?: string | null;
+  } | null> | null;
+};
 
-export type VideoFragment = { __typename?: 'Video', _key?: string | null, _type?: string | null, id?: string | null, title?: string | null, src?: string | null };
+export type VideoFragment = {
+  __typename?: 'Video';
+  _key?: string | null;
+  _type?: string | null;
+  id?: string | null;
+  title?: string | null;
+  src?: string | null;
+};
 
 export const SlugFragmentDoc = gql`
-    fragment Slug on Slug {
-  _key
-  _type
-  current
-  source
-}
-    `;
-export const TestimonialFragmentDoc = gql`
-    fragment Testimonial on Testimonial {
-  _key
-  _type
-  title
-  content
-  author_name
-}
-    `;
-export const TestimonialsFragmentDoc = gql`
-    fragment Testimonials on Testimonials {
-  _key
-  _type
-  title
-  modules {
-    ...Testimonial
-  }
-}
-    ${TestimonialFragmentDoc}`;
-export const VideoFragmentDoc = gql`
-    fragment Video on Video {
-  _key
-  _type
-  id
-  title
-  src
-}
-    `;
-export const PhotoFragmentDoc = gql`
-    fragment Photo on Photo {
-  _key
-  _type
-  src
-  alt
-  customRatio
-}
-    `;
-export const HeroFragmentDoc = gql`
-    fragment Hero on Hero {
-  _key
-  _type
-  content
-  bgType
-  video {
-    ...Video
-  }
-  Photos {
+  fragment Slug on Slug {
     _key
     _type
-    mobilePhoto {
-      ...Photo
+    current
+    source
+  }
+`;
+export const TestimonialFragmentDoc = gql`
+  fragment Testimonial on Testimonial {
+    _key
+    _type
+    title
+    content
+    author_name
+  }
+`;
+export const TestimonialsFragmentDoc = gql`
+  fragment Testimonials on Testimonials {
+    _key
+    _type
+    title
+    modules {
+      ...Testimonial
     }
-    desktopPhoto {
-      ...Photo
+  }
+  ${TestimonialFragmentDoc}
+`;
+export const VideoFragmentDoc = gql`
+  fragment Video on Video {
+    _key
+    _type
+    id
+    title
+    src
+  }
+`;
+export const PhotoFragmentDoc = gql`
+  fragment Photo on Photo {
+    _key
+    _type
+    src
+    alt
+    customRatio
+  }
+`;
+export const HeroFragmentDoc = gql`
+  fragment Hero on Hero {
+    _key
+    _type
+    content
+    bgType
+    video {
+      ...Video
     }
-  }
-}
-    ${VideoFragmentDoc}
-${PhotoFragmentDoc}`;
-export const PharagraphFragmentDoc = gql`
-    fragment Pharagraph on Pharagraph {
-  _key
-  _type
-  title
-  content
-}
-    `;
-export const ContentSectionFragmentDoc = gql`
-    fragment ContentSection on HeroOrPharagraphOrPhotoOrTestimonials {
-  ... on Hero {
-    ...Hero
-  }
-  ... on Pharagraph {
-    ...Pharagraph
-  }
-  ... on Photo {
-    ...Photo
-  }
-  ... on Testimonials {
-    ...Testimonials
-  }
-}
-    ${HeroFragmentDoc}
-${PharagraphFragmentDoc}
-${PhotoFragmentDoc}
-${TestimonialsFragmentDoc}`;
-export const SectionFragmentDoc = gql`
-    fragment Section on Section {
-  _id
-  _type
-  _key
-  title
-  modules {
-    ... on ContentSection {
+    Photos {
       _key
       _type
-      name
-      modules {
-        ...ContentSection
+      mobilePhoto {
+        ...Photo
+      }
+      desktopPhoto {
+        ...Photo
       }
     }
+  }
+  ${VideoFragmentDoc}
+  ${PhotoFragmentDoc}
+`;
+export const PharagraphFragmentDoc = gql`
+  fragment Pharagraph on Pharagraph {
+    _key
+    _type
+    title
+    content
+  }
+`;
+export const ContentSectionFragmentDoc = gql`
+  fragment ContentSection on HeroOrPharagraphOrPhotoOrTestimonials {
     ... on Hero {
       ...Hero
+    }
+    ... on Pharagraph {
+      ...Pharagraph
     }
     ... on Photo {
       ...Photo
     }
-  }
-}
-    ${ContentSectionFragmentDoc}
-${HeroFragmentDoc}
-${PhotoFragmentDoc}`;
-export const PageContentFragmentDoc = gql`
-    fragment PageContent on ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials {
-  __typename
-  ... on Testimonials {
-    ...Testimonials
-  }
-  ... on Hero {
-    ...Hero
-  }
-  ... on Pharagraph {
-    ...Pharagraph
-  }
-  ... on Photo {
-    ...Photo
-  }
-  ... on Section {
-    ...Section
-  }
-}
-    ${TestimonialsFragmentDoc}
-${HeroFragmentDoc}
-${PharagraphFragmentDoc}
-${PhotoFragmentDoc}
-${SectionFragmentDoc}`;
-export const PageFragmentDoc = gql`
-    fragment Page on Page {
-  _id
-  _key
-  _type
-  title
-  slug {
-    ...Slug
-  }
-  modules {
-    ...PageContent
-  }
-}
-    ${SlugFragmentDoc}
-${PageContentFragmentDoc}`;
-export const GetPageDocument = gql`
-    query GetPage($id: ID!) {
-  Page(id: $id) {
-    ...Page
-  }
-}
-    ${PageFragmentDoc}`;
-
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
-
-
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
-
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
-  return {
-    GetPage(variables: GetPageQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetPageQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetPageQuery>(GetPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetPage', 'query');
+    ... on Testimonials {
+      ...Testimonials
     }
+  }
+  ${HeroFragmentDoc}
+  ${PharagraphFragmentDoc}
+  ${PhotoFragmentDoc}
+  ${TestimonialsFragmentDoc}
+`;
+export const SectionFragmentDoc = gql`
+  fragment Section on Section {
+    _id
+    _type
+    _key
+    title
+    modules {
+      ... on ContentSection {
+        _key
+        _type
+        name
+        modules {
+          ...ContentSection
+        }
+      }
+      ... on Hero {
+        ...Hero
+      }
+      ... on Photo {
+        ...Photo
+      }
+    }
+  }
+  ${ContentSectionFragmentDoc}
+  ${HeroFragmentDoc}
+  ${PhotoFragmentDoc}
+`;
+export const PageContentFragmentDoc = gql`
+  fragment PageContent on ContentSectionOrHeroOrPharagraphOrPhotoOrSectionOrTestimonials {
+    __typename
+    ... on Testimonials {
+      ...Testimonials
+    }
+    ... on Hero {
+      ...Hero
+    }
+    ... on Pharagraph {
+      ...Pharagraph
+    }
+    ... on Photo {
+      ...Photo
+    }
+    ... on Section {
+      ...Section
+    }
+  }
+  ${TestimonialsFragmentDoc}
+  ${HeroFragmentDoc}
+  ${PharagraphFragmentDoc}
+  ${PhotoFragmentDoc}
+  ${SectionFragmentDoc}
+`;
+export const PageFragmentDoc = gql`
+  fragment Page on Page {
+    _id
+    _key
+    _type
+    title
+    slug {
+      ...Slug
+    }
+    modules {
+      ...PageContent
+    }
+  }
+  ${SlugFragmentDoc}
+  ${PageContentFragmentDoc}
+`;
+export const GetPageDocument = gql`
+  query GetPage($id: ID!) {
+    Page(id: $id) {
+      ...Page
+    }
+  }
+  ${PageFragmentDoc}
+`;
+
+export type SdkFunctionWrapper = <T>(
+  action: (requestHeaders?: Record<string, string>) => Promise<T>,
+  operationName: string,
+  operationType?: string,
+) => Promise<T>;
+
+const defaultWrapper: SdkFunctionWrapper = (
+  action,
+  _operationName,
+  _operationType,
+) => action();
+
+export function getSdk(
+  client: GraphQLClient,
+  withWrapper: SdkFunctionWrapper = defaultWrapper,
+) {
+  return {
+    GetPage(
+      variables: GetPageQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetPageQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetPageQuery>(GetPageDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'GetPage',
+        'query',
+      );
+    },
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
