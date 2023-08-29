@@ -1,5 +1,0 @@
-query GetPage($id: ID!) {
-  Page(id: $id) {
-    ...Page
-  }
-}

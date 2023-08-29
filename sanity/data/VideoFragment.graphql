@@ -1,7 +1,0 @@
-fragment Video on Video {
-  _key
-  _type
-  id
-  title
-  src
-}

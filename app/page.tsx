@@ -1,9 +1,4 @@
 import Testimonials from '@/components/Testimonials';
-import { api } from '@/sanity/data/api';
-import {
-  PageContentFragment,
-  TestimonialsFragment,
-} from '@/sanity/data/gql-sdk';
 
 export default async function Home() {
   const pages = await api.GetPage({

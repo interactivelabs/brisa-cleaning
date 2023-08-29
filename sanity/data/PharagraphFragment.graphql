@@ -1,6 +1,0 @@
-fragment Pharagraph on Pharagraph {
-  _key
-  _type
-  title
-  content
-}

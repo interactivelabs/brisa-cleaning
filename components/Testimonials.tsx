@@ -1,7 +1,3 @@
-import {
-  TestimonialFragment,
-  TestimonialsFragment,
-} from '@/sanity/data/gql-sdk';
 
 export interface ITestimonials {
   testimonials: TestimonialsFragment;

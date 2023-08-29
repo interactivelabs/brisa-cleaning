@@ -1,5 +1,5 @@
 overwrite: true
-schema: 'https://u25p0yxd.api.sanity.io/v1/graphql/production/default'
+schema: 'https://graphql.contentful.com/content/v1/spaces/5xo8mpmc94me'
 documents: '**/*.{tsx,graphql}'
 generates:
   ./graphql/graphql.ts:
