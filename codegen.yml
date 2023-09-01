@@ -1,19 +1,21 @@
 overwrite: true
-schema: 'https://graphql.contentful.com/content/v1/spaces/5xo8mpmc94me'
+schema:
+  'https://graphql.contentful.com/content/v1/spaces/5xo8mpmc94me':
+    headers:
+      Authorization: Bearer ${API_GRAPHQL_TOKEN}
 documents: '**/*.{tsx,graphql}'
 generates:
   ./graphql/graphql.ts:
     plugins:
       - typescript
-  ./sanity/data/gql-sdk.ts:
+  ./:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql.ts
+      baseTypesPath: /graphql/graphql.ts
     plugins:
-      - typescript
       - typescript-operations
-      - typescript-graphql-request
-    pluginsConfig:
-      typescript-graphql-request:
-        rawRequest: true
-        useTypeImports: true
+      - typescript-react-apollo
   ./@types/graphql.d.ts:
     plugins:
       - typescript-graphql-files-modules

@@ -1,5 +1,6 @@
 import { Nunito_Sans } from 'next/font/google';
 import './globals.css';
+import { ApolloWrapper } from '@lib/apollo/ApolloWrapper';
 
 const nunito = Nunito_Sans({ weight: ['200'], subsets: ['latin'] });
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <ApolloWrapper>{children}</ApolloWrapper>
+      </body>
     </html>
   );
 }
