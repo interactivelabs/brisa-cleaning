@@ -1,0 +1,70 @@
+query HomePage {
+  pageCollection(where: { slug: "home" }) {
+    items {
+      internalName
+      pageName
+      slug
+      pageContent {
+        ... on ComponentProductTable {
+          internalName
+          headline
+          subline
+          productsCollection {
+            items {
+              internalName
+              name
+              price
+              description {
+                json
+              }
+            }
+          }
+        }
+      }
+      topSectionCollection(limit: 10) {
+        items {
+          ... on ComponentCta {
+            headline
+            ctaText
+            targetPage {
+              ... on Page {
+                slug
+              }
+            }
+            urlParameters
+            colorPalette
+            subline {
+              json
+            }
+          }
+          ... on ComponentDuplex {
+            internalName
+            containerLayout
+            headline
+            ctaText
+            targetPage {
+              ... on Page {
+                slug
+              }
+            }
+            imageStyle
+            colorPalette
+            bodyText {
+              json
+            }
+            image {
+              title
+              description
+              contentType
+              fileName
+              size
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+}
