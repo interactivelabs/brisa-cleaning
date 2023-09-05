@@ -7,3 +7,13 @@ declare module '*/HomePage.graphql' {
   export default defaultDocument;
 }
     
+
+declare module '*/NavigationMenu.graphql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const LinkToPage: DocumentNode;
+export const NavigationMenu: DocumentNode;
+
+  export default defaultDocument;
+}
+    

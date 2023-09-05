@@ -1,6 +1,8 @@
 import { Nunito_Sans } from 'next/font/google';
-import './globals.css';
 import { ApolloWrapper } from '@lib/apollo/ApolloWrapper';
+import MainHeader from '@components/MainHeader/MainHeader';
+
+import './globals.css';
 
 const nunito = Nunito_Sans({ weight: ['200'], subsets: ['latin'] });
 
@@ -18,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
+        <MainHeader />
         <ApolloWrapper>{children}</ApolloWrapper>
       </body>
     </html>
