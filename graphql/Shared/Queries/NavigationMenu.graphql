@@ -1,0 +1,22 @@
+fragment LinkToPage on Page {
+  slug
+  pageName
+}
+
+query NavigationMenu($id: String!) {
+  navigationMenu(id: $id) {
+    menuItemsCollection {
+      items {
+        groupName
+        featuredPagesCollection {
+          items {
+            ...LinkToPage
+          }
+        }
+        groupLink {
+          ...LinkToPage
+        }
+      }
+    }
+  }
+}
