@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react';
 import classNames from '@lib/styles-utils/classnames';
 
-const baseClassNames = 'base-button';
+const ownClassNames = 'base-button';
 
 const BaseButton = ({
   type = 'button',
@@ -12,7 +12,7 @@ const BaseButton = ({
   <button
     type={type}
     className={classNames(
-      baseClassNames,
+      ownClassNames,
       className,
       (props.disabled && 'disabled:opacity-50') || '',
     )}

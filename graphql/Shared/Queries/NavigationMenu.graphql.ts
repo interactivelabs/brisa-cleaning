@@ -9,6 +9,24 @@ export type LinkToPageFragment = {
   pageName?: string | null;
 };
 
+export type NavMenuGroupFragment = {
+  __typename?: 'MenuGroup';
+  groupName?: string | null;
+  featuredPagesCollection?: {
+    __typename?: 'MenuGroupFeaturedPagesCollection';
+    items: Array<{
+      __typename?: 'Page';
+      slug?: string | null;
+      pageName?: string | null;
+    } | null>;
+  } | null;
+  groupLink?: {
+    __typename?: 'Page';
+    slug?: string | null;
+    pageName?: string | null;
+  } | null;
+};
+
 export type NavigationMenuQueryVariables = Types.Exact<{
   id: Types.Scalars['String']['input'];
 }>;
@@ -46,25 +64,31 @@ export const LinkToPageFragmentDoc = gql`
     pageName
   }
 `;
+export const NavMenuGroupFragmentDoc = gql`
+  fragment NavMenuGroup on MenuGroup {
+    groupName
+    featuredPagesCollection {
+      items {
+        ...LinkToPage
+      }
+    }
+    groupLink {
+      ...LinkToPage
+    }
+  }
+  ${LinkToPageFragmentDoc}
+`;
 export const NavigationMenuDocument = gql`
   query NavigationMenu($id: String!) {
     navigationMenu(id: $id) {
       menuItemsCollection {
         items {
-          groupName
-          featuredPagesCollection {
-            items {
-              ...LinkToPage
-            }
-          }
-          groupLink {
-            ...LinkToPage
-          }
+          ...NavMenuGroup
         }
       }
     }
   }
-  ${LinkToPageFragmentDoc}
+  ${NavMenuGroupFragmentDoc}
 `;
 
 /**

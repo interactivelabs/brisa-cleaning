@@ -3,19 +3,23 @@ fragment LinkToPage on Page {
   pageName
 }
 
+fragment NavMenuGroup on MenuGroup {
+  groupName
+  featuredPagesCollection {
+    items {
+      ...LinkToPage
+    }
+  }
+  groupLink {
+    ...LinkToPage
+  }
+}
+
 query NavigationMenu($id: String!) {
   navigationMenu(id: $id) {
     menuItemsCollection {
       items {
-        groupName
-        featuredPagesCollection {
-          items {
-            ...LinkToPage
-          }
-        }
-        groupLink {
-          ...LinkToPage
-        }
+        ...NavMenuGroup
       }
     }
   }

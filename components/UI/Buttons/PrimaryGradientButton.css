@@ -1,0 +1,34 @@
+@layer components {
+  .gradient-button {
+    background: linear-gradient(
+      -45deg,
+      theme('colors.sky.400'),
+      theme('colors.sky.900'),
+      theme('colors.sky.400')
+    );
+    background-size: 200%;
+    animation: gradient-button-out 500ms ease-in;
+    background-position: 0% 50%;
+    &:hover {
+      animation: gradient-button-in 500ms ease-out forwards;
+    }
+  }
+  @keyframes gradient-button-in {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes gradient-button-out {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
