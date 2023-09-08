@@ -1,12 +1,14 @@
 import Image from 'next/image';
-import MainMenu from './MainMenu';
-import LogoSmall from './logo_temp_small.png';
-import MainCta from './MainCta';
 import {
   NavigationMenuDocument,
   NavigationMenuQuery,
 } from '@graphql/Shared/Queries/NavigationMenu.graphql';
 import { getClient } from '@lib/apollo/rscClient';
+
+import MainMenu from './MainMenu';
+import MainCta from './MainCta';
+
+import LogoSmall from './logo_temp_small.png';
 
 const getData = async (): Promise<NavigationMenuQuery> => {
   const { data, error } = await getClient().query({

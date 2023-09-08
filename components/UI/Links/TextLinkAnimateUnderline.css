@@ -1,0 +1,5 @@
+@layer components {
+  .link-animatge-underline {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:border-b-2 after:border-gray-900 after:duration-300 after:hover:w-full;
+  }
+}
