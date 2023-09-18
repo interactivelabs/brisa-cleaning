@@ -55,7 +55,7 @@ const MainMenuMobile = ({
                   <Link
                     key={item.groupName}
                     href={item.groupLink?.slug || '/'}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-gray-900 hover:bg-gray-50"
                   >
                     {item.groupName}
                   </Link>
@@ -64,7 +64,7 @@ const MainMenuMobile = ({
                 <Disclosure as="div" className="-mx-3" key={item.groupName}>
                   {({ open }) => (
                     <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-gray-900 hover:bg-gray-50">
                         {item.groupName}
                         <ChevronDownIcon
                           className={`h-4 w-4 duration-200 translate ${
@@ -79,7 +79,7 @@ const MainMenuMobile = ({
                             as={Link}
                             key={page?.slug}
                             href={page?.slug || '/'}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            className="block rounded-lg py-2 pl-6 pr-3 text-gray-900 hover:bg-gray-50"
                           >
                             {page?.pageName}
                           </Disclosure.Button>

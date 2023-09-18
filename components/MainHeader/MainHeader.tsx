@@ -30,10 +30,10 @@ const MainHeader = async () => {
 
   return (
     <header className="w-full flex justify-between lg:justify-around items-center px-4 pt-2 lg:pt-6 pb-2">
-      <div className="flex-1 flex lg:justify-center">
+      <div className="flex lg:justify-center lg:flex-1">
         <MainMenu menuItems={menuItems} />
       </div>
-      <div className="flex-1 flex lg:justify-center">
+      <div className="flex-1 flex justify-center">
         <Link href="/">
           <Image
             src={LogoSmall}
