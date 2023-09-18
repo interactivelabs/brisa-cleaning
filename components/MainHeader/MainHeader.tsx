@@ -9,6 +9,7 @@ import MainMenu from './MainMenu';
 import MainCta from './MainCta';
 
 import LogoSmall from './logo_temp_small.png';
+import Link from 'next/link';
 
 const getData = async (): Promise<NavigationMenuQuery> => {
   const { data, error } = await getClient().query({
@@ -29,9 +30,20 @@ const MainHeader = async () => {
 
   return (
     <header className="w-full flex justify-between lg:justify-around items-center px-4 pt-2 lg:pt-6 pb-2">
-      <MainMenu menuItems={menuItems} />
-      <Image src={LogoSmall} alt="Brisa Cleaning Logo" height={50} width={50} />
-      <div className="hidden lg:block">
+      <div className="flex-1 flex lg:justify-center">
+        <MainMenu menuItems={menuItems} />
+      </div>
+      <div className="flex-1 flex lg:justify-center">
+        <Link href="/">
+          <Image
+            src={LogoSmall}
+            alt="Brisa Cleaning Logo"
+            height={50}
+            width={50}
+          />
+        </Link>
+      </div>
+      <div className="hidden lg:flex-1 lg:flex justify-center">
         <MainCta />
       </div>
     </header>
