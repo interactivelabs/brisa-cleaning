@@ -1,0 +1,20 @@
+query FooterMenu($id: String!) {
+  footerMenu(id: $id) {
+    menuItemsCollection {
+      items {
+        ...NavMenuGroup
+      }
+    }
+    legalLinks {
+      ...NavMenuGroup
+    }
+    socialLinks {
+      externalLinksCollection {
+        items {
+          externalName
+          url
+        }
+      }
+    }
+  }
+}

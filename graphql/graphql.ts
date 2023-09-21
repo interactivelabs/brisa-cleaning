@@ -1990,29 +1990,121 @@ export enum EntryOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
 }
 
+/** To be able to add an external link to places like social networks or angi, etc. [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/externalLink) */
+export type ExternalLink = Entry & {
+  __typename?: 'ExternalLink';
+  contentfulMetadata: ContentfulMetadata;
+  externalName?: Maybe<Scalars['String']['output']>;
+  linkedFrom?: Maybe<ExternalLinkLinkingCollections>;
+  sys: Sys;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+/** To be able to add an external link to places like social networks or angi, etc. [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/externalLink) */
+export type ExternalLinkExternalNameArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** To be able to add an external link to places like social networks or angi, etc. [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/externalLink) */
+export type ExternalLinkLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+/** To be able to add an external link to places like social networks or angi, etc. [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/externalLink) */
+export type ExternalLinkUrlArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ExternalLinkCollection = {
+  __typename?: 'ExternalLinkCollection';
+  items: Array<Maybe<ExternalLink>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type ExternalLinkFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ExternalLinkFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ExternalLinkFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  externalName?: InputMaybe<Scalars['String']['input']>;
+  externalName_contains?: InputMaybe<Scalars['String']['input']>;
+  externalName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  externalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  externalName_not?: InputMaybe<Scalars['String']['input']>;
+  externalName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  externalName_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  sys?: InputMaybe<SysFilter>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ExternalLinkLinkingCollections = {
+  __typename?: 'ExternalLinkLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  socialLinksCollection?: Maybe<SocialLinksCollection>;
+};
+
+export type ExternalLinkLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ExternalLinkLinkingCollectionsSocialLinksCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<ExternalLinkLinkingCollectionsSocialLinksCollectionOrder>>
+  >;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum ExternalLinkLinkingCollectionsSocialLinksCollectionOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+}
+
+export enum ExternalLinkOrder {
+  ExternalNameAsc = 'externalName_ASC',
+  ExternalNameDesc = 'externalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC',
+}
+
 /** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
 export type FooterMenu = Entry & {
   __typename?: 'FooterMenu';
   contentfulMetadata: ContentfulMetadata;
-  facebookLink?: Maybe<Scalars['String']['output']>;
-  instagramLink?: Maybe<Scalars['String']['output']>;
   internalName?: Maybe<Scalars['String']['output']>;
   legalLinks?: Maybe<MenuGroup>;
   linkedFrom?: Maybe<FooterMenuLinkingCollections>;
-  linkedinLink?: Maybe<Scalars['String']['output']>;
   menuItemsCollection?: Maybe<FooterMenuMenuItemsCollection>;
+  socialLinks?: Maybe<SocialLinks>;
   sys: Sys;
-  twitterLink?: Maybe<Scalars['String']['output']>;
-};
-
-/** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
-export type FooterMenuFacebookLinkArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
-export type FooterMenuInstagramLinkArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
@@ -2033,11 +2125,6 @@ export type FooterMenuLinkedFromArgs = {
 };
 
 /** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
-export type FooterMenuLinkedinLinkArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
 export type FooterMenuMenuItemsCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -2048,8 +2135,10 @@ export type FooterMenuMenuItemsCollectionArgs = {
 };
 
 /** Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/footerMenu) */
-export type FooterMenuTwitterLinkArgs = {
+export type FooterMenuSocialLinksArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<SocialLinksFilter>;
 };
 
 export type FooterMenuCollection = {
@@ -2064,24 +2153,6 @@ export type FooterMenuFilter = {
   AND?: InputMaybe<Array<InputMaybe<FooterMenuFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<FooterMenuFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  facebookLink?: InputMaybe<Scalars['String']['input']>;
-  facebookLink_contains?: InputMaybe<Scalars['String']['input']>;
-  facebookLink_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  facebookLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  facebookLink_not?: InputMaybe<Scalars['String']['input']>;
-  facebookLink_not_contains?: InputMaybe<Scalars['String']['input']>;
-  facebookLink_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
-  instagramLink?: InputMaybe<Scalars['String']['input']>;
-  instagramLink_contains?: InputMaybe<Scalars['String']['input']>;
-  instagramLink_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  instagramLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  instagramLink_not?: InputMaybe<Scalars['String']['input']>;
-  instagramLink_not_contains?: InputMaybe<Scalars['String']['input']>;
-  instagramLink_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
   internalName?: InputMaybe<Scalars['String']['input']>;
   internalName_contains?: InputMaybe<Scalars['String']['input']>;
   internalName_exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2093,27 +2164,11 @@ export type FooterMenuFilter = {
   >;
   legalLinks?: InputMaybe<CfMenuGroupNestedFilter>;
   legalLinks_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  linkedinLink?: InputMaybe<Scalars['String']['input']>;
-  linkedinLink_contains?: InputMaybe<Scalars['String']['input']>;
-  linkedinLink_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  linkedinLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  linkedinLink_not?: InputMaybe<Scalars['String']['input']>;
-  linkedinLink_not_contains?: InputMaybe<Scalars['String']['input']>;
-  linkedinLink_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
   menuItems?: InputMaybe<CfMenuGroupNestedFilter>;
   menuItemsCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  socialLinks?: InputMaybe<CfSocialLinksNestedFilter>;
+  socialLinks_exists?: InputMaybe<Scalars['Boolean']['input']>;
   sys?: InputMaybe<SysFilter>;
-  twitterLink?: InputMaybe<Scalars['String']['input']>;
-  twitterLink_contains?: InputMaybe<Scalars['String']['input']>;
-  twitterLink_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  twitterLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  twitterLink_not?: InputMaybe<Scalars['String']['input']>;
-  twitterLink_not_contains?: InputMaybe<Scalars['String']['input']>;
-  twitterLink_not_in?: InputMaybe<
-    Array<InputMaybe<Scalars['String']['input']>>
-  >;
 };
 
 export type FooterMenuLinkingCollections = {
@@ -2152,14 +2207,8 @@ export enum FooterMenuMenuItemsCollectionOrder {
 }
 
 export enum FooterMenuOrder {
-  FacebookLinkAsc = 'facebookLink_ASC',
-  FacebookLinkDesc = 'facebookLink_DESC',
-  InstagramLinkAsc = 'instagramLink_ASC',
-  InstagramLinkDesc = 'instagramLink_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
-  LinkedinLinkAsc = 'linkedinLink_ASC',
-  LinkedinLinkDesc = 'linkedinLink_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -2168,8 +2217,6 @@ export enum FooterMenuOrder {
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TwitterLinkAsc = 'twitterLink_ASC',
-  TwitterLinkDesc = 'twitterLink_DESC',
 }
 
 export enum ImageFormat {
@@ -2464,14 +2511,8 @@ export type MenuGroupLinkingCollectionsNavigationMenuCollectionArgs = {
 };
 
 export enum MenuGroupLinkingCollectionsFooterMenuCollectionOrder {
-  FacebookLinkAsc = 'facebookLink_ASC',
-  FacebookLinkDesc = 'facebookLink_DESC',
-  InstagramLinkAsc = 'instagramLink_ASC',
-  InstagramLinkDesc = 'instagramLink_DESC',
   InternalNameAsc = 'internalName_ASC',
   InternalNameDesc = 'internalName_DESC',
-  LinkedinLinkAsc = 'linkedinLink_ASC',
-  LinkedinLinkDesc = 'linkedinLink_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -2480,8 +2521,6 @@ export enum MenuGroupLinkingCollectionsFooterMenuCollectionOrder {
   SysPublishedAtDesc = 'sys_publishedAt_DESC',
   SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TwitterLinkAsc = 'twitterLink_ASC',
-  TwitterLinkDesc = 'twitterLink_DESC',
 }
 
 export enum MenuGroupLinkingCollectionsNavigationMenuCollectionOrder {
@@ -2988,6 +3027,8 @@ export type Query = {
   componentTextBlock?: Maybe<ComponentTextBlock>;
   componentTextBlockCollection?: Maybe<ComponentTextBlockCollection>;
   entryCollection?: Maybe<EntryCollection>;
+  externalLink?: Maybe<ExternalLink>;
+  externalLinkCollection?: Maybe<ExternalLinkCollection>;
   footerMenu?: Maybe<FooterMenu>;
   footerMenuCollection?: Maybe<FooterMenuCollection>;
   menuGroup?: Maybe<MenuGroup>;
@@ -2998,6 +3039,8 @@ export type Query = {
   pageCollection?: Maybe<PageCollection>;
   seo?: Maybe<Seo>;
   seoCollection?: Maybe<SeoCollection>;
+  socialLinks?: Maybe<SocialLinks>;
+  socialLinksCollection?: Maybe<SocialLinksCollection>;
   topicBusinessInfo?: Maybe<TopicBusinessInfo>;
   topicBusinessInfoCollection?: Maybe<TopicBusinessInfoCollection>;
   topicPerson?: Maybe<TopicPerson>;
@@ -3137,6 +3180,21 @@ export type QueryEntryCollectionArgs = {
   where?: InputMaybe<EntryFilter>;
 };
 
+export type QueryExternalLinkArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type QueryExternalLinkCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ExternalLinkOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ExternalLinkFilter>;
+};
+
 export type QueryFooterMenuArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -3210,6 +3268,21 @@ export type QuerySeoCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   skip?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<SeoFilter>;
+};
+
+export type QuerySocialLinksArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type QuerySocialLinksCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<SocialLinksOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<SocialLinksFilter>;
 };
 
 export type QueryTopicBusinessInfoArgs = {
@@ -3438,6 +3511,119 @@ export enum SeoOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
+}
+
+/** list of social links/services for footer [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/socialLinks) */
+export type SocialLinks = Entry & {
+  __typename?: 'SocialLinks';
+  contentfulMetadata: ContentfulMetadata;
+  externalLinksCollection?: Maybe<SocialLinksExternalLinksCollection>;
+  linkedFrom?: Maybe<SocialLinksLinkingCollections>;
+  sys: Sys;
+};
+
+/** list of social links/services for footer [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/socialLinks) */
+export type SocialLinksExternalLinksCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<SocialLinksExternalLinksCollectionOrder>>
+  >;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<ExternalLinkFilter>;
+};
+
+/** list of social links/services for footer [See type definition](https://app.contentful.com/spaces/5xo8mpmc94me/content_types/socialLinks) */
+export type SocialLinksLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SocialLinksCollection = {
+  __typename?: 'SocialLinksCollection';
+  items: Array<Maybe<SocialLinks>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type SocialLinksExternalLinksCollection = {
+  __typename?: 'SocialLinksExternalLinksCollection';
+  items: Array<Maybe<ExternalLink>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export enum SocialLinksExternalLinksCollectionOrder {
+  ExternalNameAsc = 'externalName_ASC',
+  ExternalNameDesc = 'externalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC',
+}
+
+export type SocialLinksFilter = {
+  AND?: InputMaybe<Array<InputMaybe<SocialLinksFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<SocialLinksFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  externalLinks?: InputMaybe<CfExternalLinkNestedFilter>;
+  externalLinksCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sys?: InputMaybe<SysFilter>;
+};
+
+export type SocialLinksLinkingCollections = {
+  __typename?: 'SocialLinksLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  footerMenuCollection?: Maybe<FooterMenuCollection>;
+};
+
+export type SocialLinksLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type SocialLinksLinkingCollectionsFooterMenuCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<
+    Array<InputMaybe<SocialLinksLinkingCollectionsFooterMenuCollectionOrder>>
+  >;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export enum SocialLinksLinkingCollectionsFooterMenuCollectionOrder {
+  InternalNameAsc = 'internalName_ASC',
+  InternalNameDesc = 'internalName_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+}
+
+export enum SocialLinksOrder {
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
 }
 
 export type Sys = {
@@ -4281,6 +4467,29 @@ export enum TopicProductOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
 }
 
+export type CfExternalLinkNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfExternalLinkNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfExternalLinkNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  externalName?: InputMaybe<Scalars['String']['input']>;
+  externalName_contains?: InputMaybe<Scalars['String']['input']>;
+  externalName_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  externalName_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  externalName_not?: InputMaybe<Scalars['String']['input']>;
+  externalName_not_contains?: InputMaybe<Scalars['String']['input']>;
+  externalName_not_in?: InputMaybe<
+    Array<InputMaybe<Scalars['String']['input']>>
+  >;
+  sys?: InputMaybe<SysFilter>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type CfMenuGroupNestedFilter = {
   AND?: InputMaybe<Array<InputMaybe<CfMenuGroupNestedFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<CfMenuGroupNestedFilter>>>;
@@ -4341,6 +4550,14 @@ export type CfSeoNestedFilter = {
   title_not?: InputMaybe<Scalars['String']['input']>;
   title_not_contains?: InputMaybe<Scalars['String']['input']>;
   title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type CfSocialLinksNestedFilter = {
+  AND?: InputMaybe<Array<InputMaybe<CfSocialLinksNestedFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<CfSocialLinksNestedFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  externalLinksCollection_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sys?: InputMaybe<SysFilter>;
 };
 
 export type CfTopicProductFeatureNestedFilter = {

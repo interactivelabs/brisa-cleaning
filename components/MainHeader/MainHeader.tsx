@@ -29,22 +29,24 @@ const MainHeader = async () => {
   const menuItems = data.navigationMenu.menuItemsCollection.items;
 
   return (
-    <header className="w-full flex justify-between lg:justify-around items-center px-4 pt-2 lg:pt-6 pb-2">
-      <div className="flex lg:justify-center lg:flex-1">
-        <MainMenu menuItems={menuItems} />
-      </div>
-      <div className="flex-1 flex justify-center">
-        <Link href="/">
-          <Image
-            src={LogoSmall}
-            alt="Brisa Cleaning Logo"
-            height={50}
-            width={50}
-          />
-        </Link>
-      </div>
-      <div className="hidden lg:flex-1 lg:flex justify-center">
-        <MainCta />
+    <header className="w-full">
+      <div className="mx-auto max-w-7xl flex justify-between lg:justify-around items-center px-4 pt-2 lg:pt-6 pb-2">
+        <div className="flex lg:justify-center lg:flex-1">
+          <MainMenu menuItems={menuItems} />
+        </div>
+        <div className="flex-1 flex justify-center">
+          <Link href="/">
+            <Image
+              src={LogoSmall}
+              alt="Brisa Cleaning Logo"
+              height={50}
+              width={50}
+            />
+          </Link>
+        </div>
+        <div className="hidden lg:flex-1 lg:flex justify-center">
+          <MainCta />
+        </div>
       </div>
     </header>
   );

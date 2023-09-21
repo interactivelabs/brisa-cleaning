@@ -1,6 +1,7 @@
 import { Nunito_Sans } from 'next/font/google';
 import { ApolloWrapper } from '@lib/apollo/ApolloWrapper';
 import MainHeader from '@components/MainHeader/MainHeader';
+import MainFooter from '@components/MainFooter/MainFooter';
 
 import './globals.css';
 
@@ -12,16 +13,19 @@ export const metadata = {
     'This is the site for Brisa Cleaning a home cleaning service for families',
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface IRootLayout {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <MainHeader />
-        <ApolloWrapper>{children}</ApolloWrapper>
+        <ApolloWrapper>
+          <MainHeader />
+          {children}
+          <MainFooter />
+        </ApolloWrapper>
       </body>
     </html>
   );
