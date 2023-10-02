@@ -1,5 +1,5 @@
 import MenuTopArrow from '@components/UI/Menus/MenuTopArrow';
-import type { NavMenuGroupFragment } from '@graphql/Shared/Queries/NavigationMenu.graphql';
+import type { NavMenuGroupFragment } from '@graphql/Shared/Fragments/NavMenuGroupFragment.graphql';
 import { Popover, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';

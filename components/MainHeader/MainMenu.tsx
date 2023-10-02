@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { NavMenuGroupFragment } from '@graphql/Shared/Queries/NavigationMenu.graphql';
+import type { NavMenuGroupFragment } from '@graphql/Shared/Fragments/NavMenuGroupFragment.graphql';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import MainMenuWide from './MainMenuWide';
 import MainMenuMobile from './MainMenuMobile';
